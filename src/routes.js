@@ -19,5 +19,6 @@ routes.get('/', (req, res) => {
 })
 
 routes.put('/users', UserController.update)
+routes.delete('/users', UserController.delete)
 
 module.exports = routes
