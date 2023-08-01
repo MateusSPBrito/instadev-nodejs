@@ -18,4 +18,6 @@ routes.get('/', (req, res) => {
     return res.json({ message: 'Funcionou!' })
 })
 
+routes.put('/users', UserController.update)
+
 module.exports = routes
