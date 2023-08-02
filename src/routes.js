@@ -6,6 +6,8 @@ const creatUserSchema = require('./schemas/create.user.schema.json')
 const AuthenticationController = require('./apps/controllers/authenticationController')
 const authSchema = require('./schemas/auth.schema.json')
 const AuthenticationMiddleware = require('./apps/middlewares/authentication')
+const { upload } = require('./configs/multer')
+const FileController = require('./apps/controllers/filecontroller')
 
 const routes = new Router()
 
@@ -20,5 +22,8 @@ routes.get('/', (req, res) => {
 
 routes.put('/users', UserController.update)
 routes.delete('/users', UserController.delete)
+routes.get('/user-profile', UserController.userProfile)
+
+routes.post('/upload', upload.single('image'), FileController.upload)
 
 module.exports = routes
